@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git credentialsId: 'github-credentials', url: 'https://github.com/saitejareddy05/jenkins-docker-pipeline.git'
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/saitejareddy05/jenkins-docker-pipeline.git'
             }
         }
 
@@ -31,14 +31,14 @@ pipeline {
             emailext (
                 subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "Build succeeded! Check logs at ${env.BUILD_URL}",
-                to: "youremail@gmail.com"
+                to: "saitejareddy0126@gmail.com"
             )
         }
         failure {
             emailext (
                 subject: "❌ FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "Build failed. Please check the logs: ${env.BUILD_URL}",
-                to: "youremail@gmail.com"
+                to: "saitejareddy0126@gmail.com"
             )
         }
     }
