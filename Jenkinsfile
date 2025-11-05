@@ -8,10 +8,11 @@ pipeline {
 
     stages {
         stage('Clone Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/jenkins-docker-pipeline.git'
-            }
-        }
+    steps {
+        git 'https://github.com/saitejareddy05/jenkins-docker-pipeline.git'
+    }
+}
+
 
         stage('Build Docker Image') {
             steps {
